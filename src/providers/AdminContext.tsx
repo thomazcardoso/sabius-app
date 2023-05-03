@@ -33,7 +33,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postsList, setPostsList] = useState<IPost[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
+  // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
 
   const filterSearch = postsList.filter(
     (post) =>
