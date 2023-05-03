@@ -25,6 +25,8 @@ interface IAdminContext {
   search: string;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
+  openModal: () => void;
 }
 
 export const AdminContext = createContext({} as IAdminContext);
@@ -34,6 +36,9 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
+
+  const closeModal = () => setIsOpen(false);
+  const openModal = () => setIsOpen(true);
 
   const filterSearch = postsList.filter(
     (post) =>
@@ -105,7 +110,10 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         setSearch,
         isOpen,
         setIsOpen,
-      }}>
+        openModal,
+        closeModal,
+      }}
+    >
       {children}
     </AdminContext.Provider>
   );
