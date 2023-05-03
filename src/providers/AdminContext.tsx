@@ -31,7 +31,6 @@ export const AdminContext = createContext({} as IAdminContext);
 
 export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postsList, setPostsList] = useState<IPost[]>([]);
-  const [favorite, setFavorite] = useState<IPost[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
