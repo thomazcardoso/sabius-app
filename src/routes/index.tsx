@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoutes } from "../components/ProtectedRoutes";
+import { NotFound } from "../pages/Notfound";
 
 export const Router = () => {
   return (
@@ -10,7 +11,7 @@ export const Router = () => {
         <Route path="/dashboard" element={<></>} />
         <Route path="/admin" element={<></>} />
       </Route>
-      <Route path="*" element={<></>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
