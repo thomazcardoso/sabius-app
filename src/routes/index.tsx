@@ -11,7 +11,7 @@ export const Router = () => {
         <Route path="/dashboard" element={<></>} />
         <Route path="/admin" element={<></>} />
       </Route>
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<></>} />
     </Routes>
   );
 };
