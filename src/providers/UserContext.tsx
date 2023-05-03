@@ -72,7 +72,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const registerUser = async (formData: IRegisterFormData) => {
     try {
       await api.post<IUserResponse>("/register", formData);
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +98,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     localStorage.removeItem("@TOKEN:SABIUS");
     localStorage.removeItem("@USERID:SABIUS");
     setUser(null);
-    navigate("/login");
+    navigate("/");
   };
 
   return (
