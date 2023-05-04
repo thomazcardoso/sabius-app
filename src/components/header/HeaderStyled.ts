@@ -22,8 +22,8 @@ export const HeaderStyled = styled.header`
   }
 
   div > img {
-    height: 55px;
-    width: 83px;
+    height: 70px;
+    width: 70px;
   }
 
   div > h1 {
