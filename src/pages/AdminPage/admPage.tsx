@@ -7,14 +7,15 @@ import { useContext } from "react";
 import { AdminContext } from "../../providers/AdminContext";
 
 export const AdmPage = () => {
-  const {isOpen} = useContext(AdminContext)
+  const { isOpen } = useContext(AdminContext);
+
   return (
     <>
       <Header />
       <List />
-      {isOpen === "Create" ? <ModalCreate/>: null}
-      {isOpen === "Delete"? <ModalDelete/> : null}
-      {isOpen === "Edit" ? <ModalEdit/> : null}
+      {isOpen === "Create" ? <ModalCreate /> : null}
+      {isOpen === "Delete" ? <ModalDelete /> : null}
+      {isOpen === "Edit" ? <ModalEdit /> : null}
     </>
   );
 };
