@@ -13,7 +13,7 @@ export const ModalCreate = () => {
   const { register, handleSubmit } = useForm<IPost>({});
 
   const submit = async (data: IPost) => {
-    const id = 1;
+    // const id = 1;
     console.log(register);
     console.log(data);
     createPost(data);

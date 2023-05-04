@@ -9,7 +9,7 @@ import { StylledRegisterForm } from "./style";
 import { CadasterButton } from "../../../styles/buttons";
 
 export const RegisterForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading ] = useState(false);
   const { registerUser } = useContext(UserContext);
   const {
     register,

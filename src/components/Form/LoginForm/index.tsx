@@ -8,7 +8,7 @@ import { StylledLoginForm } from "./style";
 import { CadasterLinkButton, LoginButton } from "../../../styles/buttons";
 
 export const LoginForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const { login } = useContext(UserContext);
   const {
     register,
