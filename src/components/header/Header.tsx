@@ -5,8 +5,8 @@ import { UserContext } from "../../providers/UserContext";
 import { AdminContext } from "../../providers/AdminContext";
 
 export const Header = () => {
-  const {logout, user} = useContext(UserContext)
-  const {setSearch} = useContext(AdminContext)
+  const { logout, user } = useContext(UserContext);
+  const { setSearch } = useContext(AdminContext);
   return (
     <HeaderStyled>
       <div>
@@ -16,7 +16,11 @@ export const Header = () => {
 
       <section>
         <form className="searchContainer">
-          <input type="text" placeholder="Faça sua busca..." onChange={(e) => setSearch(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="Faça sua busca..."
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
           <button>
             <img src="/src/assets/lupa.svg" alt="" />
@@ -24,11 +28,11 @@ export const Header = () => {
         </form>
 
         <div className="containerBtn">
-          <button>REACT</button>
-          <button>CSS</button>
-          <button>HTML</button>
-          <button>TYPESCRIPT</button>
-          <button>JAVASCRIPT</button>
+          <button onClick={() => setSearch("react")}>REACT</button>
+          <button onClick={() => setSearch("css")}>CSS</button>
+          <button onClick={() => setSearch("html")}>HTML</button>
+          <button onClick={() => setSearch("typescript")}>TYPESCRIPT</button>
+          <button onClick={() => setSearch("javascript")}>JAVASCRIPT</button>
         </div>
       </section>
 
