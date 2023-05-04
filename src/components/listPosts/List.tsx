@@ -5,11 +5,11 @@ import { useContext } from "react";
 import { AdminContext } from "../../providers/AdminContext";
 
 export const List = () => {
-  const { postsList } = useContext(AdminContext);
+  const { postsList, isOpen, setIsOpen, openModal } = useContext(AdminContext);
 
   return (
     <>
-      <BtnStyled>
+      <BtnStyled onClick={openModal}>
         <img src="/src/assets/add.svg" />
       </BtnStyled>
       <ListStyled>
