@@ -29,6 +29,8 @@ interface IAdminContext {
   openModal: (modal: IModalText) => void;
   findPost: (postId: number) => void;
   postUser: IPost | null;
+  deleteCard: (cardId: any) => void;
+  post: IPost | null;
 }
 
 type IModalText = undefined | "Create" | "Delete" | "Edit" | "Read";
@@ -40,6 +42,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [isOpen, setIsOpen] = useState<IModalText>(undefined);
   const [search, setSearch] = useState("");
   const [postUser, setPostUser] = useState<IPost | null>(null);
+  const [post, setPost] = useState<IPost | null>(null);
   // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
 
   const closeModal = () => setIsOpen(undefined);
@@ -70,8 +73,8 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
     try {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
-      await api.post<IPost[]>("/posts", formData);
-      setPostsList([...postsList, formData]);
+      const response = await api.post<IPost>("/posts", formData);
+      setPostsList([...postsList, response.data]);
       setIsOpen(undefined);
       console.log("Requisição feita com sucesso");
     } catch (error) {
@@ -99,11 +102,13 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       await api.delete(`posts/${id}`);
       console.log("Post deletado com sucesso");
+      setIsOpen(undefined);
     } catch (error) {
       console.log(error);
     }
 
   };
+
 
   const findPost = (postId: number) => {
     const postFind = filterSearch.find((post) => postId === post.id)!
@@ -112,7 +117,11 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     setPostUser(postFind)
   }
 
-
+  const deleteCard = (cardId: number) => {
+    const postFound = postsList.find((post) => post.id === cardId)!;
+    setPost(postFound);
+    setIsOpen("Delete");
+  };
 
   return (
     <AdminContext.Provider
@@ -130,6 +139,8 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         closeModal,
         findPost,
         postUser
+        deleteCard,
+        post,
       }}
     >
       {children}
