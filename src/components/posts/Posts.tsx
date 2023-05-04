@@ -8,7 +8,7 @@ interface IPostProps {
 }
 
 export const Posts = ({ post }: IPostProps) => {
-  const { openModal } = useContext(AdminContext);
+  const { openModal, deleteCard } = useContext(AdminContext);
   const { user } = useContext(UserContext);
 
   return (
@@ -34,7 +34,7 @@ export const Posts = ({ post }: IPostProps) => {
           ></button>
           <button
             className="btnDelete"
-            onClick={() => openModal("Delete")}
+            onClick={() => deleteCard(post.id)}
           ></button>
         </div>
       </div>
