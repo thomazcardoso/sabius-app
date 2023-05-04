@@ -62,6 +62,15 @@ export const StyleLi = styled.li`
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
+
+    .btn_two {
+      margin-bottom: 5px;
+    }
+
+    .btn_three {
+      width: 40px;
+    }
+
   }
 
   .react {
@@ -97,6 +106,7 @@ export const StyleLi = styled.li`
 
     .controlls__container {
       justify-content: space-evenly;
+        
     }
 
   }
