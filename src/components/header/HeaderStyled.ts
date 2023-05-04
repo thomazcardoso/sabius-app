@@ -13,6 +13,7 @@ export const HeaderStyled = styled.header`
   margin: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 
+  
   div {
     display: flex;
     align-items: center;
@@ -20,10 +21,11 @@ export const HeaderStyled = styled.header`
     height: 65px;
     width: 175px;
   }
-
+  
   div > img {
     height: 70px;
     width: 70px;
+    border-radius: 150%;
   }
 
   div > h1 {
@@ -47,7 +49,7 @@ export const HeaderStyled = styled.header`
     height: 42px;
     background-color: transparent;
   }
-
+  
   section {
     display: none;
   }
@@ -57,13 +59,19 @@ export const HeaderStyled = styled.header`
     display: none;
   }
 
+  
+
+  
   @media (min-width: 1100px) {
     section {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
+    .containerBtnModile{
+      display: none;
+    }
+    
     .containerBtn {
       display: flex;
       justify-content: space-between;
@@ -141,3 +149,28 @@ export const HeaderStyled = styled.header`
     }
   }
 `;
+
+export const StyledMenuFilter = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: var(--grey-1);
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    button{
+      border: none;
+      height: 38px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      text-align: start;
+      padding-left: 16px;
+      background-color: transparent;
+      color: var(--grey-7);
+      font-family: 'Inder';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+    }
+    @media (min-width: 1100px){
+      display: none;
+    }
+`
