@@ -6,7 +6,6 @@ import { AdminContext } from "../../../providers/AdminContext";
 export const ModalDelete = () => {
   const { closeModal, post, deletePost } = useContext(AdminContext);
 
-  const { closeModal } = useContext(AdminContext);
   return (
     <ModalBackDropStyled>
       <ModalDeleteStyled>

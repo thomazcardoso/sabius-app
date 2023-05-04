@@ -31,6 +31,7 @@ interface IAdminContext {
   postUser: IPost | null;
   deleteCard: (cardId: any) => void;
   post: IPost | null;
+  editCard: (cardId: number) => void;
 }
 
 type IModalText = undefined | "Create" | "Delete" | "Edit" | "Read";
@@ -48,11 +49,11 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const closeModal = () => setIsOpen(undefined);
   const openModal = (modal: IModalText) => setIsOpen(modal);
 
-  const filterSearch = postsList.filter(
-    (post) =>
-      search === "" ? true : 
-      post.title.toLowerCase().includes(search) ||
-      post.techCategory.toLowerCase().includes(search)
+  const filterSearch = postsList.filter((post) =>
+    search === ""
+      ? true
+      : post.title.toLowerCase().includes(search) ||
+        post.techCategory.toLowerCase().includes(search)
   );
 
   useEffect(() => {
@@ -67,7 +68,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       }
     };
     loadPosts();
-  }, []);
+  }, [postsList]);
 
   const createPost = async (formData: IPost) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
@@ -82,13 +83,13 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     }
   };
 
-  const editPost = async (id: number, formData: IPost) => {
+  const editPost = async (id: number, formData?: IPost) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
     try {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
-      await api.patch(`posts/${id}`, formData);
+      const response = await api.patch(`posts/${id}`, formData);
       const newPosts = postsList.filter((post) => post.id !== id);
-      setPostsList([...newPosts, formData]);
+      setPostsList([...newPosts, response.data]);
       console.log("Post editado com sucesso");
       setIsOpen(undefined);
     } catch (error) {
@@ -106,21 +107,25 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     } catch (error) {
       console.log(error);
     }
-
   };
 
-
   const findPost = (postId: number) => {
-    const postFind = filterSearch.find((post) => postId === post.id)!
-    console.log(postFind)
-    setIsOpen("Read")
-    setPostUser(postFind)
-  }
+    const postFind = filterSearch.find((post) => postId === post.id)!;
+    console.log(postFind);
+    setIsOpen("Read");
+    setPostUser(postFind);
+  };
 
   const deleteCard = (cardId: number) => {
     const postFound = postsList.find((post) => post.id === cardId)!;
     setPost(postFound);
     setIsOpen("Delete");
+  };
+
+  const editCard = (cardId: number) => {
+    const postFound = postsList.find((post) => post.id === cardId)!;
+    setPost(postFound);
+    setIsOpen("Edit");
   };
 
   return (
@@ -138,9 +143,10 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         openModal,
         closeModal,
         findPost,
-        postUser
+        postUser,
         deleteCard,
         post,
+        editCard,
       }}
     >
       {children}
