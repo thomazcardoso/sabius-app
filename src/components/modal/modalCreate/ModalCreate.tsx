@@ -6,16 +6,11 @@ import { useForm } from "react-hook-form";
 import { IPost } from "../../../providers/AdminContext";
 
 export const ModalCreate = () => {
-  const { closeModal, createPost, postsList } = useContext(AdminContext);
-
-  console.log(postsList);
+  const { closeModal, createPost } = useContext(AdminContext);
 
   const { register, handleSubmit } = useForm<IPost>({});
 
   const submit = async (data: IPost) => {
-    // const id = 1;
-    console.log(register);
-    console.log(data);
     createPost(data);
   };
 

@@ -1,10 +1,18 @@
 import { ModalEditStyled } from "./ModalEditStyled";
 import { ModalBackDropStyled } from "../../../styles/ModalBackDrop";
 import { useContext } from "react";
-import { AdminContext } from "../../../providers/AdminContext";
+import { AdminContext, IPost } from "../../../providers/AdminContext";
+import { useForm } from "react-hook-form";
 
 export const ModalEdit = () => {
-  const {closeModal} = useContext(AdminContext)
+  const { closeModal, editPost } = useContext(AdminContext);
+
+  const { register, handleSubmit } = useForm<IPost>();
+
+  const submit = async (data: IPost) => {
+    editPost(data.id, data);
+  };
+
   return (
     <ModalBackDropStyled>
       <ModalEditStyled role="dialog">
@@ -15,23 +23,50 @@ export const ModalEdit = () => {
           </button>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit(submit)}>
           <label>Titulo</label>
-          <input type="text" placeholder="Titulo do post" />
+          <input
+            type="text"
+            placeholder="Titulo do post"
+            {...register("title")}
+          />
 
           <label>Descrição</label>
-          <input type="text" placeholder="Descrição do texto" />
+          <input
+            type="text"
+            placeholder="Descrição do texto"
+            {...register("description")}
+          />
 
           <label>Categoria</label>
-          <input type="text" placeholder="Categoria do post" />
+          <input
+            type="text"
+            placeholder="Categoria do post"
+            {...register("techCategory")}
+          />
 
           <label>Imagem</label>
-          <input type="url" placeholder="Endereço da imagem" />
+          <input
+            type="text"
+            placeholder="Endereço da imagem"
+            {...register("postImage")}
+          />
 
           <label>Link da biblioteca</label>
-          <input type="url" placeholder="Link da biblioteca" />
+          <input
+            type="text"
+            placeholder="Link da biblioteca"
+            {...register("link")}
+          />
 
-          <button>Salvar Alterações</button>
+          <label>ID</label>
+          <input
+            type="number"
+            placeholder="Digite o ID do ADMIN"
+            {...register("userId")}
+          />
+
+          <button type="submit">Salvar Alterações</button>
         </form>
       </ModalEditStyled>
     </ModalBackDropStyled>
