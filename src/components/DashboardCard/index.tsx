@@ -18,7 +18,7 @@ export const DashboardCard = ({post}: IPostProps) => {
     return (
         <StyleLi>
             <h1>{post.title}</h1>
-            <div>
+            <div className="profile__container">
                 <img src={user?.image} alt={user?.name} />
                 <span>{user?.name}</span>
             </div>
