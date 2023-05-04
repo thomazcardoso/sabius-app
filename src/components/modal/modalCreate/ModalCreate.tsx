@@ -1,13 +1,16 @@
 import { ModalCreateStyled } from "./ModalCreateStyled";
 import { ModalBackDropStyled } from "../../../styles/ModalBackDrop";
+import { useContext } from "react";
+import { AdminContext } from "../../../providers/AdminContext";
 
 export const ModalCreate = () => {
+  const {closeModal} = useContext(AdminContext)
   return (
     <ModalBackDropStyled>
       <ModalCreateStyled role="dialog">
         <div>
           <h1>Criar novo post</h1>
-          <button>
+          <button onClick={closeModal}>
             <img src="/src/assets/closemodal.svg" />
           </button>
         </div>

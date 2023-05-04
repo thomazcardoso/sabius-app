@@ -1,12 +1,14 @@
 import { PostsStyled } from "./PostsStyled";
 import devadm from "/src/assets/devadm.svg";
-import { IPost } from "../../providers/AdminContext";
+import { AdminContext, IPost } from "../../providers/AdminContext";
+import { useContext } from "react";
 
 interface IPostProps {
   post: IPost;
 }
 
 export const Posts = ({ post }: IPostProps) => {
+  const {openModal} = useContext(AdminContext)
   return (
     <>
       <PostsStyled className={post.techCategory === "REACT" ? "react" : "html"}>
@@ -25,8 +27,8 @@ export const Posts = ({ post }: IPostProps) => {
           <p className="postText">{post.description}</p>
 
           <div className="btnDiv">
-            <button className="btnEdit"></button>
-            <button className="btnDelete"></button>
+            <button className="btnEdit" id={`${post.id}`} onClick={openModal}></button>
+            <button className="btnDelete" id={`${post.id}`} onClick={openModal}></button>
           </div>
         </div>
       </PostsStyled>
