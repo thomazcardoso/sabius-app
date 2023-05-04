@@ -29,7 +29,7 @@ interface IAdminContext {
   openModal: (modal: IModalText) => void;
 }
 
-type IModalText = undefined | "Create" | "Delete" | "Edit"
+type IModalText = undefined | "Create" | "Delete" | "Edit";
 
 export const AdminContext = createContext({} as IAdminContext);
 
@@ -71,7 +71,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       setIsOpen(undefined);
       console.log("Requisição feita com sucesso");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
