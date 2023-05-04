@@ -68,7 +68,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       }
     };
     loadPosts();
-  }, [postsList]);
+  }, []);
 
   const createPost = async (formData: IPost) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");

@@ -11,7 +11,7 @@ export const ModalCreate = () => {
   const { register, handleSubmit } = useForm<IPost>({});
 
   const submit = async (data: IPost) => {
-    createPost(data);
+    createPost({...data, userId: 1});
   };
 
   return (
@@ -58,13 +58,6 @@ export const ModalCreate = () => {
             type="text"
             placeholder="Link da biblioteca"
             {...register("link")}
-          />
-
-          <label>ID</label>
-          <input
-            type="number"
-            placeholder="Digite o ID do ADMIN"
-            {...register("userId")}
           />
 
           <button type="submit">Criar post</button>
