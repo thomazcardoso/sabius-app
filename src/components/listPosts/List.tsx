@@ -5,15 +5,17 @@ import { useContext } from "react";
 import { AdminContext } from "../../providers/AdminContext";
 
 export const List = () => {
-  const { openModal } = useContext(AdminContext);
+  const { postsList } = useContext(AdminContext);
 
   return (
     <>
-      <BtnStyled onClick={openModal}>
+      <BtnStyled>
         <img src="/src/assets/add.svg" />
       </BtnStyled>
       <ListStyled>
-        <Posts />
+        {postsList.map((post) => (
+          <Posts key={post.id} post={post} />
+        ))}
       </ListStyled>
     </>
   );
