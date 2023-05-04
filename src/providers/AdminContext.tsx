@@ -49,11 +49,11 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const closeModal = () => setIsOpen(undefined);
   const openModal = (modal: IModalText) => setIsOpen(modal);
 
-  const filterSearch = postsList.filter(
-    (post) =>
-      search === "" ? true : 
-      post.title.toLowerCase().includes(search) ||
-      post.techCategory.toLowerCase().includes(search)
+  const filterSearch = postsList.filter((post) =>
+    search === ""
+      ? true
+      : post.title.toLowerCase().includes(search) ||
+        post.techCategory.toLowerCase().includes(search)
   );
 
   useEffect(() => {
@@ -107,16 +107,14 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     } catch (error) {
       console.log(error);
     }
-
   };
 
-
   const findPost = (postId: number) => {
-    const postFind = filterSearch.find((post) => postId === post.id)!
-    console.log(postFind)
-    setIsOpen("Read")
-    setPostUser(postFind)
-  }
+    const postFind = filterSearch.find((post) => postId === post.id)!;
+    console.log(postFind);
+    setIsOpen("Read");
+    setPostUser(postFind);
+  };
 
   const deleteCard = (cardId: number) => {
     const postFound = postsList.find((post) => post.id === cardId)!;
@@ -145,7 +143,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         openModal,
         closeModal,
         findPost,
-        postUser
+        postUser,
         deleteCard,
         post,
         editCard,
