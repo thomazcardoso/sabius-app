@@ -4,6 +4,7 @@ import like from "../../../assets/heart.png"
 import favorite from "../../../assets/star.png"
 import { AdminContext } from "../../../providers/AdminContext"
 import { ModalBackDropStyled } from "../../../styles/ModalBackDrop"
+import { StyledContainerModal } from "./style"
 
 
 export const ModalDashboard = () => {
@@ -12,23 +13,20 @@ export const ModalDashboard = () => {
 
     return (
         <ModalBackDropStyled role="dialog">
-            <div className="container__modal">
-            <div className="modal__header">
-                <div>
+            <StyledContainerModal className="container__modal">
+                <div className="container__content">
+                    <h1>{postUser?.title}</h1>
+                    <h3>{postUser?.techCategory}</h3>
+                    <p>{postUser?.description}</p>
+                    <span>Link: {postUser?.link}</span>
+                    <div>
+                        <img src={favorite}/>
+                        <img src={like}/>
+                    </div>
                 </div>
-                <img src={close}/>
-            </div>
-            <div>
-                <h1>{postUser?.title}</h1>
-                <h3>{postUser?.techCategory}</h3>
-                <p>{postUser?.description}</p>
-                <span>Link: {postUser?.link}</span>
-            </div>
-            <div>
-                <img src={favorite}/>
-                <img src={like}/>
-            </div>
-            </div>
+                <img className="img__close" src={close}/>
+
+            </StyledContainerModal>
         </ModalBackDropStyled>
     )
 }
