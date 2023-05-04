@@ -6,13 +6,11 @@ import { DashboardCard } from "../DashboardCard";
 
 export const DashboardPost = () => {
 
-    const {postsList, search, filterSearch} = useContext(AdminContext);
-
-    const currentPost = search !== "" ? filterSearch : postsList;
+    const {filterSearch} = useContext(AdminContext);
 
     return (
         <StyledUl>
-            {currentPost.map((post: IPost) => (
+            {filterSearch.map((post: IPost) => (
                 <DashboardCard key={post.id}  post={post} />
             ))}
         </StyledUl>

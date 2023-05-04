@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { IPost } from "../../providers/AdminContext"
+import { useContext} from "react"
+import { AdminContext, IPost } from "../../providers/AdminContext"
 import { StyleLi } from "./style"
 import { UserContext } from "../../providers/UserContext"
 import modal from "../../assets/modal.png"
@@ -13,7 +13,9 @@ interface IPostProps {
 
 export const DashboardCard = ({post}: IPostProps) => {
 
-    const {user} = useContext(UserContext)
+    const {user} = useContext(UserContext);
+
+    const {findPost} = useContext(AdminContext);
 
     return (
         <StyleLi>
@@ -28,9 +30,9 @@ export const DashboardCard = ({post}: IPostProps) => {
                 <p>{post.description}</p>
                 <img className="post__img" src={post.postImage} alt={post.techCategory}/>
                 <div className="controlls__container">
-                    <img src={modal} alt="modal"/>
-                    <img src={star} alt="favorite"/>
-                    <img src={heart} alt="like"/>
+                    <img className="btn_one" src={modal} alt="modal" onClick={() => findPost(post.id)}/>
+                    <img className="btn_two" src={star} alt="favorite" onClick={() => console.log("favorite")}/>
+                    <img className="btn_three" src={heart} alt="like" onClick={() => console.log("like")}/>
                 </div>
             </div>
         </StyleLi>
