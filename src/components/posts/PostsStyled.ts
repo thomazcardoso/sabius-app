@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const PostsStyled = styled.li`
   @import url("https://fonts.googleapis.com/css2?family=Inder&display=swap");
+  border-radius: 15px;
+  margin-bottom: 46px;
 
   list-style: none;
-
   h1 {
     font-style: normal;
     font-weight: 500;
@@ -60,7 +61,6 @@ export const PostsStyled = styled.li`
     padding-bottom: 19px;
     padding-left: 23px;
     border-radius: 15px;
-    margin: 0 0 45px 0;
   }
 
   .react {

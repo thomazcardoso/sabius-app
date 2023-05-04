@@ -1,13 +1,16 @@
 import { ModalEditStyled } from "./ModalEditStyled";
 import { ModalBackDropStyled } from "../../../styles/ModalBackDrop";
+import { useContext } from "react";
+import { AdminContext } from "../../../providers/AdminContext";
 
 export const ModalEdit = () => {
+  const {closeModal} = useContext(AdminContext)
   return (
     <ModalBackDropStyled>
       <ModalEditStyled role="dialog">
         <div>
           <h1>Editar Post</h1>
-          <button>
+          <button onClick={closeModal}>
             <img src="/src/assets/closemodal.svg" />
           </button>
         </div>

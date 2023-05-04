@@ -12,9 +12,9 @@ export const AdmPage = () => {
     <>
       <Header />
       <List />
-      {isOpen ? <ModalCreate/>: null}
-      {isOpen ? <ModalDelete/> : null}
-      {/* {isOpen ? <ModalEdit/> : null} */}
+      {isOpen === "Create" ? <ModalCreate/>: null}
+      {isOpen === "Delete"? <ModalDelete/> : null}
+      {isOpen === "Edit" ? <ModalEdit/> : null}
     </>
   );
 };

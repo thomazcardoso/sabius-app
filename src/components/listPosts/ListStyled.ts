@@ -39,4 +39,5 @@ export const BtnStyled = styled.button`
   background-color: transparent;
   position: absolute;
   right: 5%;
+  top: 160px;
 `;
