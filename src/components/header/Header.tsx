@@ -28,11 +28,11 @@ export const Header = () => {
         </form>
 
         <div className="containerBtn">
-          <button>REACT</button>
-          <button>CSS</button>
-          <button>HTML</button>
-          <button>TYPESCRIPT</button>
-          <button>JAVASCRIPT</button>
+          <button onClick={() => setSearch("react")}>REACT</button>
+          <button onClick={() => setSearch("css")}>CSS</button>
+          <button onClick={() => setSearch("html")}>HTML</button>
+          <button onClick={() => setSearch("typescript")}>TYPESCRIPT</button>
+          <button onClick={() => setSearch("javascript")}>JAVASCRIPT</button>
         </div>
       </section>
 
