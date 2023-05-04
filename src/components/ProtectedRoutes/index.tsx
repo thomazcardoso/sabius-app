@@ -11,5 +11,5 @@ export const ProtectedRoutes = () => {
             <Outlet />
         </AdminProvider>
     ) : (
-    <Navigate to="/login"/>)
+    <Navigate to="/"/>)
 }

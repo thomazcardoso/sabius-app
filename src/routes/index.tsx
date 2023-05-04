@@ -4,6 +4,7 @@ import { AdmPage } from "../pages/AdminPage/admPage";
 import { NotFound } from "../pages/Notfound";
 import { LoginPage } from "../pages/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage";
+import { Dashboard } from "../pages/Dashboard";
 
 export const Router = () => {
   return (
@@ -11,7 +12,7 @@ export const Router = () => {
       <Route path="/" element={<LoginPage/>} />
       <Route path="/register" element={<RegisterPage/>} />
       <Route element={<ProtectedRoutes />}>
-        <Route path="/dashboard" element={<></>} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin" element={<AdmPage />} />
       </Route>
       <Route path="*" element={<NotFound/>} />
