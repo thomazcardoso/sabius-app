@@ -9,7 +9,7 @@ export const RegisterPage = () => {
             <div className="col-left">
                 <div className="header">
                     <h1>S A B I U S</h1>
-                    <BackButton to={"/login"}>Voltar</BackButton>
+                    <BackButton to={"/"}>Voltar</BackButton>
                 </div>
                 <div className="form">
                     <RegisterForm/>  

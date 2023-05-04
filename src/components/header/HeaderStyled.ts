@@ -51,6 +51,7 @@ export const HeaderStyled = styled.header`
   section {
     display: none;
   }
+  
 
   .divLogout {
     display: none;
@@ -136,6 +137,7 @@ export const HeaderStyled = styled.header`
       cursor: pointer;
       width: 27px;
       height: 27px;
+      top: 7px;
     }
   }
 `;

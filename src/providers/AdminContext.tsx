@@ -23,22 +23,24 @@ interface IAdminContext {
   filterSearch: IPost[];
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   search: string;
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: IModalText;
+  setIsOpen: React.Dispatch<React.SetStateAction<IModalText>>;
   closeModal: () => void;
-  openModal: () => void;
+  openModal: (modal: IModalText) => void;
 }
+
+type IModalText = undefined | "Create" | "Delete" | "Edit"
 
 export const AdminContext = createContext({} as IAdminContext);
 
 export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postsList, setPostsList] = useState<IPost[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<IModalText>(undefined);
   const [search, setSearch] = useState("");
   // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
 
-  const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(undefined);
+  const openModal = (modal: IModalText) => setIsOpen(modal);
 
   const filterSearch = postsList.filter(
     (post) =>
@@ -66,7 +68,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       await api.post<IPost[]>("/posts", formData);
       setPostsList([...postsList, formData]);
-      setIsOpen(false);
+      setIsOpen(undefined);
       console.log("Requisição feita com sucesso");
     } catch (error) {
       console.log(error);
@@ -81,7 +83,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       const newPosts = postsList.filter((post) => post.id !== id);
       setPostsList([...newPosts, formData]);
       console.log("Post editado com sucesso");
-      setIsOpen(false);
+      setIsOpen(undefined);
     } catch (error) {
       console.log(error);
     }
