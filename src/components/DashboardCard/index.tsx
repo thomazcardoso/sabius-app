@@ -17,17 +17,21 @@ export const DashboardCard = ({post}: IPostProps) => {
 
     return (
         <StyleLi>
-            <h1>{post.title}</h1>
-            <div className="profile__container">
-                <img src={user?.image} alt={user?.name} />
-                <span>{user?.name}</span>
-            </div>
-            <p>{post.description}</p>
-            <img src={post.postImage} alt={post.techCategory}/>
-            <div>
-                <img src={modal} alt="modal"/>
-                <img src={star} alt="favorite"/>
-                <img src={heart} alt="like"/>
+            <div className={`div__styled ${post.techCategory.toLowerCase()}`}>
+                <h1>{post.title}</h1>
+                <div className="profile__container">
+                    <img src={user?.image} alt={user?.name} />
+                    <span>{user?.name}</span>
+                    <p>|</p>
+                    <h3>{post.techCategory}</h3>
+                </div>
+                <p>{post.description}</p>
+                <img className="post__img" src={post.postImage} alt={post.techCategory}/>
+                <div className="controlls__container">
+                    <img src={modal} alt="modal"/>
+                    <img src={star} alt="favorite"/>
+                    <img src={heart} alt="like"/>
+                </div>
             </div>
         </StyleLi>
     )
