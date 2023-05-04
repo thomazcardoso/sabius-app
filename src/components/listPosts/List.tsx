@@ -8,6 +8,7 @@ export const List = () => {
   const { postsList, openModal, search, filterSearch } =
     useContext(AdminContext);
   const currentPost = search !== "" ? filterSearch : postsList;
+
   return (
     <>
       <BtnStyled onClick={() => openModal("Create")}>

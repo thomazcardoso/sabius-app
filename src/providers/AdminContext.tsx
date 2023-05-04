@@ -27,6 +27,8 @@ interface IAdminContext {
   setIsOpen: React.Dispatch<React.SetStateAction<IModalText>>;
   closeModal: () => void;
   openModal: (modal: IModalText) => void;
+  deleteCard: (cardId: any) => void;
+  post: IPost | null;
 }
 
 type IModalText = undefined | "Create" | "Delete" | "Edit";
@@ -37,6 +39,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postsList, setPostsList] = useState<IPost[]>([]);
   const [isOpen, setIsOpen] = useState<IModalText>(undefined);
   const [search, setSearch] = useState("");
+  const [post, setPost] = useState<IPost | null>(null);
   // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
 
   const closeModal = () => setIsOpen(undefined);
@@ -66,8 +69,8 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
     try {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
-      await api.post<IPost[]>("/posts", formData);
-      setPostsList([...postsList, formData]);
+      const response = await api.post<IPost>("/posts", formData);
+      setPostsList([...postsList, response.data]);
       setIsOpen(undefined);
       console.log("Requisição feita com sucesso");
     } catch (error) {
@@ -95,9 +98,16 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       await api.delete(`posts/${id}`);
       console.log("Post deletado com sucesso");
+      setIsOpen(undefined);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const deleteCard = (cardId: number) => {
+    const postFound = postsList.find((post) => post.id === cardId)!;
+    setPost(postFound);
+    setIsOpen("Delete");
   };
 
   return (
@@ -114,6 +124,8 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         setIsOpen,
         openModal,
         closeModal,
+        deleteCard,
+        post,
       }}
     >
       {children}
