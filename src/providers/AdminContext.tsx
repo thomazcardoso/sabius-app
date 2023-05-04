@@ -4,7 +4,7 @@ interface ICartProviderProps {
   children: React.ReactNode;
 }
 
-interface IPost {
+export interface IPost {
   id: number;
   title: string;
   description: string;
