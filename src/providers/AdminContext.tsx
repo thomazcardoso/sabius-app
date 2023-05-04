@@ -27,12 +27,14 @@ interface IAdminContext {
   setIsOpen: React.Dispatch<React.SetStateAction<IModalText>>;
   closeModal: () => void;
   openModal: (modal: IModalText) => void;
+  findPost: (postId: number) => void;
+  postUser: IPost | null;
   deleteCard: (cardId: any) => void;
   post: IPost | null;
   editCard: (cardId: number) => void;
 }
 
-type IModalText = undefined | "Create" | "Delete" | "Edit";
+type IModalText = undefined | "Create" | "Delete" | "Edit" | "Read";
 
 export const AdminContext = createContext({} as IAdminContext);
 
@@ -40,6 +42,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postsList, setPostsList] = useState<IPost[]>([]);
   const [isOpen, setIsOpen] = useState<IModalText>(undefined);
   const [search, setSearch] = useState("");
+  const [postUser, setPostUser] = useState<IPost | null>(null);
   const [post, setPost] = useState<IPost | null>(null);
   // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
 
@@ -48,6 +51,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
 
   const filterSearch = postsList.filter(
     (post) =>
+      search === "" ? true : 
       post.title.toLowerCase().includes(search) ||
       post.techCategory.toLowerCase().includes(search)
   );
@@ -103,7 +107,16 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     } catch (error) {
       console.log(error);
     }
+
   };
+
+
+  const findPost = (postId: number) => {
+    const postFind = filterSearch.find((post) => postId === post.id)!
+    console.log(postFind)
+    setIsOpen("Read")
+    setPostUser(postFind)
+  }
 
   const deleteCard = (cardId: number) => {
     const postFound = postsList.find((post) => post.id === cardId)!;
@@ -131,6 +144,8 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         setIsOpen,
         openModal,
         closeModal,
+        findPost,
+        postUser
         deleteCard,
         post,
         editCard,
