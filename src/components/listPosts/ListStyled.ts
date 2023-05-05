@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
 export const ListStyled = styled.ul`
-  top: 75px;
   width: 90%;
-  height: 560px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 15px;
+  max-height: 1000px;
+  margin: 0 auto;
 
   .btnAdd {
     display: flex;
@@ -37,7 +33,16 @@ export const ListStyled = styled.ul`
 export const BtnStyled = styled.button`
   border: none;
   background-color: transparent;
-  position: absolute;
-  right: 5%;
-  top: 160px;
+  margin: 16px 0;
 `;
+
+export const StyledSection = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .divButtonAdd{
+      padding: 0 5%;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+`
