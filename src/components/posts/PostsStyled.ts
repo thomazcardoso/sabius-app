@@ -8,9 +8,15 @@ export const PostsStyled = styled.li`
   list-style: none;
   h1 {
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 3.2rem;
     line-height: 30px;
+  }
+
+  img{
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
   }
 
   p {
@@ -52,12 +58,12 @@ export const PostsStyled = styled.li`
   .postContainer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     padding-top: 28px;
-    padding-right: 24px;
+    padding-right: 28px;
     padding-bottom: 19px;
     padding-left: 23px;
     border-radius: 15px;
@@ -87,9 +93,6 @@ export const PostsStyled = styled.li`
     display: flex;
     flex-direction: column;
 
-    h1 {
-      margin-top: 5px;
-    }
 
     .postContainer {
       padding-bottom: 16px;
@@ -102,10 +105,9 @@ export const PostsStyled = styled.li`
 
     .infoDiv {
       display: flex;
-      justify-content: space-between;
-      padding-right: 28px;
-      width: 450px;
+      justify-content: space-around;
       align-items: center;
+      gap: 16px
     }
 
     .infoDiv > p {
@@ -122,13 +124,13 @@ export const PostsStyled = styled.li`
     .btnEdit {
       position: absolute;
       top: 23px;
-      right: 15px;
+      right: 28px;
     }
 
     .btnDelete {
       position: absolute;
       bottom: 25px;
-      right: 15px;
+      right: 28px;
     }
 
     p {

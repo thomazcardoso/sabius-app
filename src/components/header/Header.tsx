@@ -3,11 +3,17 @@ import { HeaderStyled } from "./HeaderStyled";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 import { AdminContext } from "../../providers/AdminContext";
+import { StyledMenuFilter } from "./HeaderStyled";
 
 export const Header = () => {
   const { logout, user } = useContext(UserContext);
-  const { setSearch } = useContext(AdminContext);
+  const { setSearch, menu, toogleModal, setMenu } = useContext(AdminContext);
+  const selectMenu = (string: string) => {
+    setSearch(string)
+    setMenu(false)
+  }
   return (
+    <>
     <HeaderStyled>
       <div>
         <img src={Logo} alt="Logo do Blog Sabius" />
@@ -28,22 +34,35 @@ export const Header = () => {
         </form>
 
         <div className="containerBtn">
-          <button onClick={() => setSearch("react")}>REACT</button>
-          <button onClick={() => setSearch("css")}>CSS</button>
-          <button onClick={() => setSearch("html")}>HTML</button>
-          <button onClick={() => setSearch("typescript")}>TYPESCRIPT</button>
-          <button onClick={() => setSearch("javascript")}>JAVASCRIPT</button>
+        <button onClick={() => selectMenu("")}>HOME</button>
+          <button onClick={() => selectMenu("react")}>REACT</button>
+          <button onClick={() => selectMenu("css")}>CSS</button>
+          <button onClick={() => selectMenu("html")}>HTML</button>
+          <button onClick={() => selectMenu("typescript")}>TYPESCRIPT</button>
+          <button onClick={() => selectMenu("javascript")}>JAVASCRIPT</button>
         </div>
       </section>
 
-      <div className="divLogout" onClick={logout}>
+      <div className="divLogout">
         <img src={user?.image} alt="" />
-        <button>
+        <button onClick={logout}>
           <img src="/src/assets/logout.svg" alt="" />
         </button>
       </div>
 
-      <button className="menu-hamburguer"></button>
+      <button className="menu-hamburguer" onClick={toogleModal}></button>
     </HeaderStyled>
+    {menu ? 
+        <><StyledMenuFilter>
+          <button onClick={() => selectMenu("")}>TODOS</button>
+          <button onClick={() => selectMenu("react")}>REACT</button>
+          <button onClick={() => selectMenu("css")}>CSS</button>
+          <button onClick={() => selectMenu("html")}>HTML</button>
+          <button onClick={() => selectMenu("typescript")}>TYPESCRIPT</button>
+          <button onClick={() => selectMenu("javascript")}>JAVASCRIPT</button>
+          <button onClick={logout}>LOGOUT</button>
+        </StyledMenuFilter>
+        </> : null}
+    </>
   );
 };
