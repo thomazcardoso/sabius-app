@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import { toast } from "react-toastify";
 
 export interface IUser {
   name: string;
@@ -37,20 +38,25 @@ interface IUserContext {
   registerUser: (formData: IRegisterFormData) => Promise<void>;
   login: (formData: ILoginFormData) => Promise<void>;
   logout: () => void;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean
 }
 
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [ loading, setLoading ] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
     const userId = localStorage.getItem("@USERID:SABIUS");
     const autoUserLogin = async () => {
+    
       try {
         api.defaults.headers.common.Authorization = `Bearer ${token}`;
+        setLoading(true)
         const { data } = await api.get<IUser>(`/users/${userId}`);
         setUser(data);
         if (data.isAdmin) {
@@ -62,28 +68,37 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         console.log(error);
         localStorage.removeItem("@TOKEN:SABIUS");
         localStorage.removeItem("@USERID:SABIUS");
+      } finally {
+        setLoading(false);
       }
     };
     if (token && userId) {
       autoUserLogin();
     }
   }, []);
-
+  
   const registerUser = async (formData: IRegisterFormData) => {
     try {
+      setLoading(true)
       await api.post<IUserResponse>("/register", formData);
+      toast.success("Usuário registrado com sucesso!")
       navigate("/");
     } catch (error) {
+      toast.warn("Usuário não cadastrado!")
       console.log(error);
+    } finally {
+      setLoading(false)
     }
   };
-
+  
   const login = async (formData: ILoginFormData) => {
     try {
+      setLoading(true)
       const { data } = await api.post<IUserResponse>("/login", formData);
       localStorage.setItem("@TOKEN:SABIUS", data.accessToken);
       localStorage.setItem("@USERID:SABIUS", JSON.stringify(data.user.id));
       setUser(data.user);
+      toast.success("Seja bem-vindo!")
       if (data.user.isAdmin) {
         navigate("/admin");
       } else {
@@ -91,9 +106,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false)
     }
   };
-
+  
   const logout = () => {
     localStorage.removeItem("@TOKEN:SABIUS");
     localStorage.removeItem("@USERID:SABIUS");
@@ -102,7 +119,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, registerUser, login, logout }}>
+    <UserContext.Provider value={{ user, registerUser, login, logout, setLoading, loading }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
+import { toast } from "react-toastify";
 interface ICartProviderProps {
   children: React.ReactNode;
 }
@@ -48,6 +49,7 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [postUser, setPostUser] = useState<IPost | null>(null);
   const [post, setPost] = useState<IPost | null>(null);
   const [menu, setMenu] = useState(false)
+  const [teste, setTeste] = useState<IPost[]>([])
 
   const closeModal = () => setIsOpen(undefined);
   const openModal = (modal: IModalText) => setIsOpen(modal);
@@ -66,19 +68,21 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
         post.techCategory.toLowerCase().includes(search)
   );
 
-  useEffect(() => {
+  const loadPosts = async () => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
-    const loadPosts = async () => {
-      try {
-        api.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const { data } = await api.get<IPost[]>("/posts");
-        setPostsList(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    try {
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+      const { data } = await api.get<IPost[]>("/posts");
+      setPostsList(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
+  useEffect(() => {
     loadPosts();
-  }, []);
+  }, [teste])
 
   const createPost = async (formData: IPost) => {
     const token = localStorage.getItem("@TOKEN:SABIUS");
@@ -87,8 +91,9 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       const response = await api.post<IPost>("/posts", formData);
       setPostsList([...postsList, response.data]);
       setIsOpen(undefined);
-      console.log("Requisição feita com sucesso");
+      toast.success("Post criado com sucesso!")
     } catch (error) {
+      toast.error("Algo deu errado!")
       console.error(error);
     }
   };
@@ -100,9 +105,10 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
       const response = await api.patch(`posts/${id}`, formData);
       const newPosts = postsList.filter((post) => post.id !== id);
       setPostsList([...newPosts, response.data]);
-      console.log("Post editado com sucesso");
+      toast.success("Post editado com sucesso");
       setIsOpen(undefined);
     } catch (error) {
+      toast.error("Algo deu errado!")
       console.log(error);
     }
   };
@@ -112,9 +118,11 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
     try {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
       await api.delete(`posts/${id}`);
-      console.log("Post deletado com sucesso");
+      toast.success("Post deletado com sucesso");
       setIsOpen(undefined);
+      setTeste(postsList)
     } catch (error) {
+      toast.error("Algo deu errado!")
       console.log(error);
     }
   };
@@ -127,8 +135,10 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
 
   const deleteCard = (cardId: number) => {
     const postFound = postsList.find((post) => post.id === cardId)!;
-    setPost(postFound);
     setIsOpen("Delete");
+    setPost(postFound);
+
+   
   };
 
   const editCard = (cardId: number) => {

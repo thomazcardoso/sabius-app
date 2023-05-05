@@ -8,8 +8,8 @@ import { StylledLoginForm } from "./style";
 import { CadasterLinkButton, LoginButton } from "../../../styles/buttons";
 
 export const LoginForm = () => {
-  const [loading] = useState(false);
-  const { login } = useContext(UserContext);
+
+  const { login, loading, setLoading } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -17,10 +17,10 @@ export const LoginForm = () => {
   } = useForm<TLoginFormValues>({
     resolver: zodResolver(loginFormSchema),
   });
-
+  console.log(loading)
   const submit: SubmitHandler<TLoginFormValues> = (formData) => {
+    setLoading(true)
     login(formData)
-    //colocar setlogin no futuro
   };
 
   return (
