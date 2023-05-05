@@ -31,13 +31,10 @@ interface IAdminContext {
   postUser: IPost | null;
   deleteCard: (cardId: any) => void;
   post: IPost | null;
-<<<<<<< HEAD
   menu: boolean,
   toogleModal: () => void,
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>,
-=======
+  setMenu: React.Dispatch<React.SetStateAction<boolean>>
   editCard: (cardId: number) => void;
->>>>>>> 929ee24c65bdb814ca34949ca5c0b2fc1450a663
 }
 
 type IModalText = undefined | "Create" | "Delete" | "Edit" | "Read";

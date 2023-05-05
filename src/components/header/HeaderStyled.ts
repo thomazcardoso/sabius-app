@@ -25,7 +25,7 @@ export const HeaderStyled = styled.header`
   div > img {
     height: 70px;
     width: 70px;
-    border-radius: 150%;
+    border-radius: 50%;
   }
 
   div > h1 {
@@ -58,6 +58,7 @@ export const HeaderStyled = styled.header`
   .divLogout {
     display: none;
   }
+ 
 
   
 
@@ -101,15 +102,16 @@ export const HeaderStyled = styled.header`
 
     .divLogout {
       display: flex;
-      margin-right: 25px;
-      justify-content: space-between;
+      justify-content: space-around;
     }
 
     .divLogout > button {
-      width: 61px;
-      height: 53.39px;
       background-color: transparent;
       border: none;
+      img{
+        width: 40px;
+        height: 40px;
+      }
     }
 
     .searchContainer {
@@ -154,7 +156,7 @@ export const StyledMenuFilter = styled.div`
     display: flex;
     flex-direction: column;
     background-color: var(--grey-1);
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 2;
     button{

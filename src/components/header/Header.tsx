@@ -33,7 +33,7 @@ export const Header = () => {
         </form>
 
         <div className="containerBtn">
-          <button onClick={() => selectMenu("")}>TODOS</button>
+          <button onClick={() => selectMenu("")}>HOME</button>
           <button onClick={() => selectMenu("react")}>REACT</button>
           <button onClick={() => selectMenu("css")}>CSS</button>
           <button onClick={() => selectMenu("html")}>HTML</button>
@@ -56,7 +56,7 @@ export const Header = () => {
     </HeaderStyled>
         {menu ? 
         <><StyledMenuFilter>
-          <button onClick={() => selectMenu("")}>TODOS</button>
+          <button onClick={() => selectMenu("")}>HOME</button>
           <button onClick={() => selectMenu("react")}>REACT</button>
           <button onClick={() => selectMenu("css")}>CSS</button>
           <button onClick={() => selectMenu("html")}>HTML</button>
