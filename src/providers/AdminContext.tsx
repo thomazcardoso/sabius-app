@@ -32,6 +32,9 @@ interface IAdminContext {
   deleteCard: (cardId: any) => void;
   post: IPost | null;
   editCard: (cardId: number) => void;
+  menu: boolean,
+  toogleModal: () => void,
+  setMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IModalText = undefined | "Create" | "Delete" | "Edit" | "Read";
@@ -44,11 +47,18 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   const [search, setSearch] = useState("");
   const [postUser, setPostUser] = useState<IPost | null>(null);
   const [post, setPost] = useState<IPost | null>(null);
-  // const [filteredCategory, setFilteredCategory] = useState<IPost[]>([]);
+  const [menu, setMenu] = useState(false)
 
   const closeModal = () => setIsOpen(undefined);
   const openModal = (modal: IModalText) => setIsOpen(modal);
-
+  const toogleModal = () =>{
+    if(menu == true){
+      setMenu(false)
+    }
+    else{
+      setMenu(true)
+    }
+  }
   const filterSearch = postsList.filter((post) =>
     search === ""
       ? true
@@ -130,6 +140,9 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
   return (
     <AdminContext.Provider
       value={{
+        setMenu,
+        toogleModal,
+        menu,
         postsList,
         deletePost,
         editPost,
