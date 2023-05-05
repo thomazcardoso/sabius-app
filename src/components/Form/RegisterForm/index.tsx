@@ -9,8 +9,7 @@ import { StylledRegisterForm } from "./style";
 import { CadasterButton } from "../../../styles/buttons";
 
 export const RegisterForm = () => {
-  const [loading ] = useState(false);
-  const { registerUser } = useContext(UserContext);
+  const { registerUser, loading, setLoading } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -20,6 +19,7 @@ export const RegisterForm = () => {
   });
 
   const submit: SubmitHandler<TRegisterFormValues> = (formData) => {
+    setLoading(true)
     registerUser(formData);
   };
   return (

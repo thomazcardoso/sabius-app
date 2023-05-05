@@ -2,7 +2,6 @@ import { LoginForm } from "../../components/Form/LoginForm"
 import { StylledLoginPage } from "./style"
 import logo from "../../assets/Logo.svg"
 
-
 export const LoginPage = () => {
     return(
         <StylledLoginPage>
