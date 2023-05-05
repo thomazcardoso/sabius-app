@@ -4,6 +4,7 @@ export const StylledInput = styled.div`
 
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 
     label {
         font-family: 'Inder';
@@ -13,10 +14,11 @@ export const StylledInput = styled.div`
         line-height: 25px;
         color: var(--grey-8);
         width: 100%;
+        margin-bottom: 9px;
     }
 
     input {
-        margin-bottom: 23px;
+        
         border: 2px solid var(--color-one);
         height: 56px;
         padding-left: 21px;
@@ -34,6 +36,10 @@ export const StylledInput = styled.div`
         font-weight: 400;
         font-weight: 200;
         color: var(--grey-7);
+    }
+
+    p{
+        color: red;
     }
 
     @media (min-width: 769px) {
