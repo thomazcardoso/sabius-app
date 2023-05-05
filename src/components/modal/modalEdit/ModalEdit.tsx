@@ -10,7 +10,7 @@ export const ModalEdit = () => {
   const { register, handleSubmit } = useForm<IPost>();
 
   const submit = async (data: IPost) => {
-    editPost(data.id, data);
+    editPost(data.userId, data);
   };
 
   return (
