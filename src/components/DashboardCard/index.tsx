@@ -21,10 +21,7 @@ export const DashboardCard = ({post}: IPostProps) => {
         <StyleLi>
             <div className={`div__styled ${post.techCategory.toLowerCase()}`}>
                 <h1>{post.title}</h1>
-                <div className="profile__container">
-                    <img src={user?.image} alt={user?.name} />
-                    <span>{user?.name}</span>
-                    <p>|</p>
+                <div className="tech__container">
                     <h3>{post.techCategory}</h3>
                 </div>
                 <p>{post.description}</p>
