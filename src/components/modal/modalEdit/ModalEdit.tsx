@@ -5,12 +5,14 @@ import { AdminContext, IPost } from "../../../providers/AdminContext";
 import { useForm } from "react-hook-form";
 
 export const ModalEdit = () => {
-  const { closeModal, editPost } = useContext(AdminContext);
+  const { closeModal, editPost, post } = useContext(AdminContext);
 
   const { register, handleSubmit } = useForm<IPost>();
 
   const submit = async (data: IPost) => {
-    editPost(data.id, data);
+    if (post) {
+      editPost(post.id, {...data, userId: 1});
+    }
   };
 
   return (
@@ -59,12 +61,7 @@ export const ModalEdit = () => {
             {...register("link")}
           />
 
-          <label>ID</label>
-          <input
-            type="number"
-            placeholder="Digite o ID do ADMIN"
-            {...register("userId")}
-          />
+         
 
           <button type="submit">Salvar Alterações</button>
         </form>
