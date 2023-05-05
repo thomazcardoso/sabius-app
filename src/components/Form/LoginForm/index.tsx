@@ -17,7 +17,6 @@ export const LoginForm = () => {
   } = useForm<TLoginFormValues>({
     resolver: zodResolver(loginFormSchema),
   });
-  console.log(loading)
   const submit: SubmitHandler<TLoginFormValues> = (formData) => {
     setLoading(true)
     login(formData)

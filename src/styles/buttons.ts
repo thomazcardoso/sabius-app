@@ -48,6 +48,12 @@ export const CadasterLinkButton = styled(Link)`
     text-align: center;
     justify-content: center;
 
+    :hover{
+        transition: .4s;
+        background-color: var(--color-three);
+        color: var(--grey-1);
+    }
+
     @media (max-width: 768px){
         font-size: 16px;
         line-height: 20px;

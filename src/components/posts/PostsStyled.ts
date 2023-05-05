@@ -5,6 +5,12 @@ export const PostsStyled = styled.li`
   border-radius: 15px;
   margin-bottom: 46px;
 
+  :hover{
+    transition: 500ms;
+    transform: scale(103%);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  }
+
   list-style: none;
   h1 {
     font-style: normal;

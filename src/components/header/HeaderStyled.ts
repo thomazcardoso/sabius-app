@@ -18,13 +18,14 @@ export const HeaderStyled = styled.header`
     align-items: center;
     justify-content: center;
     height: 65px;
-    width: 175px;
+    width: 200px;
   }
 
   div > img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
+    border: 3px solid var(--color-one);
   }
 
   div > h1 {
@@ -38,6 +39,7 @@ export const HeaderStyled = styled.header`
     align-items: center;
     line-height: 40px;
     padding-top: 10px;
+    margin-left: 18px;
   }
 
   .menu-hamburguer {
@@ -52,7 +54,6 @@ export const HeaderStyled = styled.header`
   section {
     display: none;
   }
-  
 
   .divLogout {
     display: none;
@@ -65,7 +66,7 @@ export const HeaderStyled = styled.header`
       align-items: center;
     }
 
-    .containerBtnModile{
+    .containerBtnModile {
       display: none;
     }
 
@@ -76,6 +77,42 @@ export const HeaderStyled = styled.header`
       width: 593px;
       position: relative;
       top: 20px;
+
+      .home:hover{
+        transition: 400ms;
+        color: var(--grey-8);
+        transform: scale(108%);
+      }
+      
+      .react:hover {
+        transition: 400ms;
+        color: var(--color-three);
+        transform: scale(108%);
+      }
+
+      .html:hover {
+        transition: 400ms;
+        color: var(--color-six);
+        transform: scale(108%);
+      }
+
+      .css:hover {
+        transition: 400ms;
+        color: var(--color-one);
+        transform: scale(108%);
+      }
+
+      .javascript:hover {
+        transition: 400ms;
+        color: var(--color-five);
+        transform: scale(108%);
+      }
+
+      .typescript:hover {
+        transition: 400ms;
+        color: var(--color-four);
+        transform: scale(108%);
+      }
     }
 
     .containerBtn > input {
@@ -104,7 +141,7 @@ export const HeaderStyled = styled.header`
     .divLogout > button {
       background-color: transparent;
       border: none;
-      img{
+      img {
         width: 40px;
         height: 40px;
       }
@@ -149,26 +186,26 @@ export const HeaderStyled = styled.header`
 `;
 
 export const StyledMenuFilter = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: var(--grey-1);
-    position: relative;
-    width: 100%;
-    z-index: 2;
-    button{
-      border: none;
-      height: 38px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-      text-align: start;
-      padding-left: 16px;
-      background-color: transparent;
-      color: var(--grey-7);
-      font-family: 'Inder';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 15px;
-    }
-    @media (min-width: 1100px){
-      display: none;
-    }
-`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--grey-1);
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  button {
+    border: none;
+    height: 38px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: start;
+    padding-left: 16px;
+    background-color: transparent;
+    color: var(--grey-7);
+    font-family: "Inder";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;

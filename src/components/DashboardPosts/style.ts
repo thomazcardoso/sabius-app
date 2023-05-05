@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledUl = styled.ul`
     padding: 40px;
-
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.7rem;

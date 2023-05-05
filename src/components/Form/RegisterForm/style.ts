@@ -21,6 +21,13 @@ export const StylledRegisterForm = styled.div`
     button{
         margin-top: 30px;
         width: 100%;
+
+        :hover{
+            transition: 400ms;
+            opacity: 80%;
+            border: 2px solid var(--color-two);
+            transform: scale(102%);
+        }
     }
     
     input{

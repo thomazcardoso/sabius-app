@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ListStyled = styled.ul`
   width: 90%;
-  max-height: 1000px;
+  max-height: 700px;
   margin: 0 auto;
 
   .btnAdd {
@@ -18,9 +18,9 @@ export const ListStyled = styled.ul`
     padding: 48px 97px 0 61px;
     overflow-y: scroll;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+    border-radius: 8px;
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 8px;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -38,6 +38,7 @@ export const BtnStyled = styled.button`
 
 export const StyledSection = styled.section`
     width: 100%;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     .divButtonAdd{

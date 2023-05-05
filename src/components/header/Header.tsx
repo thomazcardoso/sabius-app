@@ -34,12 +34,12 @@ export const Header = () => {
           </form>
 
           <div className="containerBtn">
-            <button onClick={() => selectMenu("")}>HOME</button>
-            <button onClick={() => selectMenu("react")}>REACT</button>
-            <button onClick={() => selectMenu("css")}>CSS</button>
-            <button onClick={() => selectMenu("html")}>HTML</button>
-            <button onClick={() => selectMenu("typescript")}>TYPESCRIPT</button>
-            <button onClick={() => selectMenu("javascript")}>JAVASCRIPT</button>
+            <button className="home" onClick={() => selectMenu("")}>HOME</button>
+            <button className="react" onClick={() => selectMenu("react")}>REACT</button>
+            <button className="css" onClick={() => selectMenu("css")}>CSS</button>
+            <button className="html" onClick={() => selectMenu("html")}>HTML</button>
+            <button className="typescript" onClick={() => selectMenu("typescript")}>TYPESCRIPT</button>
+            <button className="javascript" onClick={() => selectMenu("javascript")}>JAVASCRIPT</button>
           </div>
         </section>
 

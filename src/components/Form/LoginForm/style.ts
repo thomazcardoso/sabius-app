@@ -19,6 +19,12 @@ export const StylledLoginForm = styled.div`
 
     button{
         width: 100%;
+
+        :hover{
+            transition: .4s;
+            opacity: 90%;
+            transform: scale(102%);
+        }
     }
 
     & > p{
