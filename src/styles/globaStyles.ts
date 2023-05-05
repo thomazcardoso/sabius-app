@@ -50,4 +50,13 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  ::placeholder {
+      font-size: 16px;
+      color: var(--grey-7) !important;
+
+      @media (max-width: 768px) {
+        font-size: 12px !important;
+      }
+  }
 `;

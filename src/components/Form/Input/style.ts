@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StylledInput = styled.div`
-
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -18,7 +17,6 @@ export const StylledInput = styled.div`
     }
 
     input {
-        
         border: 2px solid var(--color-one);
         height: 56px;
         padding-left: 21px;
@@ -40,9 +38,26 @@ export const StylledInput = styled.div`
 
     p{
         color: red;
+        margin-top: 5px;
     }
 
-    @media (min-width: 769px) {
+    @media (max-width: 600px) {
+        label {
+            font-size: 12px;
+            line-height: 15px;  
+            margin-bottom: 5px;
+        }
+        input {
+            height: 26px;
+            border-radius: 5px;
+            padding: 0 5px;
+            border-width: 1px;
+        }
+
+        p{
+            font-size: 11px;
+            margin-top: 2px;
+        }
        
     }
 `;

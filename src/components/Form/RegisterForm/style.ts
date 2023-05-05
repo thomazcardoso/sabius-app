@@ -4,7 +4,7 @@ export const StylledRegisterForm = styled.div`
     border: 1px solid var(--color-two);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    padding: 50px 45px;
+    padding: 35px 30px;
     background-color: var(--grey-1);
     width: 100%;
     max-width: 510px;
@@ -12,23 +12,25 @@ export const StylledRegisterForm = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 100px;
 
     form{
         width: 100%;
     }
 
     button{
+        margin-top: 30px;
         width: 100%;
     }
     
     input{
-        border-color: var(--color-two);
+        border-color: var(--color-two) !important;
+        color: var(--grey-7) !important;
     }
 
     label{
-        color: var(--grey-7);
-        margin-bottom: 5px;
-        
+        color: var(--grey-7) !important;
+        margin-bottom: 15px;
     }
 
     & > h2{
@@ -49,6 +51,19 @@ export const StylledRegisterForm = styled.div`
         color: var(--grey-4);
         margin-top: 8px;
         margin-bottom: 45px;
+    }
+
+    @media (max-width: 600px){
+        padding: 32px 30px 39px 20px;
+
+        & > h2,
+        & > p{
+            display: none;
+        }
+
+        label{
+            margin-bottom: 5px;
+        }
     }
 
 `

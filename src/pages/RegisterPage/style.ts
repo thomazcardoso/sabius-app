@@ -23,10 +23,25 @@ export const StylledRegisterPage = styled.div`
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        padding: 48px 0;
+        padding: 48px 16px 48px 26px;
+        h1{
+            font-family: 'Inder';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+        }
+       
     }
 
-    @media (max-width: 1019px) {
+    @media (max-width: 1024px) {
+        img{
+            width: 375px;
+            height: 607px;
+        }
+    }
+
+    @media (max-width: 768px) {
         position: relative;
 
         .col-left{
@@ -46,6 +61,15 @@ export const StylledRegisterPage = styled.div`
             z-index: 1;
             opacity: 0.5;
         }
+        .header{
+            h1{
+                font-size: 18px;
+            }
+            a{
+                width: 72px;
+                height: 33px;
+        }
+    }
   }
 
 `

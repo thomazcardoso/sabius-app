@@ -14,6 +14,20 @@ export const LoginButton = styled.button`
     font-size: 20px;
     line-height: 25px;
     color: var(--grey-1);
+
+    @media (max-width: 768px){
+        font-size: 16px;
+        line-height: 20px;
+        height: 38px;
+        border-radius: 8px;
+    }
+    
+    @media (max-width: 420px){
+        font-size: 12px;
+        line-height: 16px;
+        height: 26px;
+        border-radius: 5px;
+    }
 `
 
 export const CadasterLinkButton = styled(Link)`
@@ -33,6 +47,20 @@ export const CadasterLinkButton = styled(Link)`
     align-items: center;
     text-align: center;
     justify-content: center;
+
+    @media (max-width: 768px){
+        font-size: 16px;
+        line-height: 20px;
+        height: 38px;
+        border-radius: 8px;
+    }
+    
+    @media (max-width: 420px){
+        font-size: 12px;
+        line-height: 16px;
+        height: 26px;
+        border-radius: 5px;
+    }
 `
 
 export const BackButton = styled(Link)`
@@ -51,6 +79,11 @@ export const BackButton = styled(Link)`
     align-items: center;
     text-align: center;
     justify-content: center;
+    @media (max-width: 600px){
+        font-size: 12px;
+        height: 33px;
+    }
+
 `
 
 export const CadasterButton = styled.button`
@@ -65,4 +98,16 @@ export const CadasterButton = styled.button`
     font-size: 20px;
     line-height: 25px;
     color: var(--grey-1);
+
+    @media (max-width: 768px){
+        font-size: 16px;
+        line-height: 20px;
+        height: 38px;
+    }
+    
+    @media (max-width: 420px){
+        font-size: 12px;
+        line-height: 16px;
+        height: 26px;
+    }
 `
