@@ -31,5 +31,17 @@ export const StylledLoginForm = styled.div`
         line-height: 20px;
     }
 
+    @media (max-width: 768px) {
+        padding: 35px 30px;
+    }
+    
+    @media (max-width: 420px) {
+        padding: 30px 25px;
 
+        & > p {
+            font-size: 12px;
+            line-height: 15px;
+            margin: 15px 0;
+        }
+    }
 `
