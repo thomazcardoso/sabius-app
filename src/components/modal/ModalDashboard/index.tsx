@@ -7,9 +7,10 @@ import { ModalBackDropStyled } from "../../../styles/ModalBackDrop"
 import { StyledContainerModal } from "./style"
 
 
+
 export const ModalDashboard = () => {
     
-    const {postUser} = useContext(AdminContext)
+    const {postUser, closeModal} = useContext(AdminContext)
 
     return (
         <ModalBackDropStyled role="dialog">
@@ -18,14 +19,13 @@ export const ModalDashboard = () => {
                     <h1>{postUser?.title}</h1>
                     <h3>{postUser?.techCategory}</h3>
                     <p>{postUser?.description}</p>
-                    <span>Link: {postUser?.link}</span>
-                    <div>
-                        <img src={favorite}/>
-                        <img src={like}/>
+                    <a href={postUser?.link}>{postUser?.link}</a>
+                    <div className="controlls__container--modal">
+                        <img className="fav__modal" src={favorite}/>
+                        <img className="like__modal" src={like}/>
                     </div>
                 </div>
-                <img className="img__close" src={close}/>
-
+                <img className="img__close" src={close} onClick={closeModal}/>
             </StyledContainerModal>
         </ModalBackDropStyled>
     )

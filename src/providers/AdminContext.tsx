@@ -111,7 +111,6 @@ export const AdminProvider = ({ children }: ICartProviderProps) => {
 
   const findPost = (postId: number) => {
     const postFind = filterSearch.find((post) => postId === post.id)!;
-    console.log(postFind);
     setIsOpen("Read");
     setPostUser(postFind);
   };
