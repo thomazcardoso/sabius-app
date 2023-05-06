@@ -11,7 +11,7 @@ export const StylledLoginPage = styled.div`
 
     img{
         width: 195px;
-        height: 152px;
+        height: 140px;
     }
 
     h1{
