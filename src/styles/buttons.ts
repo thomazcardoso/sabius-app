@@ -32,7 +32,7 @@ export const LoginButton = styled.button`
 
 export const CadasterLinkButton = styled(Link)`
     width: 100%;
-    height: 56.41px;
+    height: 50px;
     background: #F5F5F5;
     border: 2px solid #F5F5F5;
     border-radius: 15px;
@@ -94,7 +94,7 @@ export const BackButton = styled(Link)`
 
 export const CadasterButton = styled.button`
     width: 100%;
-    height: 56.41px;
+    height: 42px;
     background: var(--color-two);
     border: 2px solid var(--color-two);
     border-radius: 15px;

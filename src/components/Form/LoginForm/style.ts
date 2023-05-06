@@ -4,7 +4,7 @@ export const StylledLoginForm = styled.div`
     border: 1px solid var(--color-one);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    padding: 50px 45px;
+    padding: 30px 35px;
     background-color: var(--grey-1);
     width: 100%;
     max-width: 510px;
@@ -15,10 +15,15 @@ export const StylledLoginForm = styled.div`
 
     form{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     button{
         width: 100%;
+        height: 42px;
+        margin-top: 8px;
 
         :hover{
             transition: .4s;
@@ -28,7 +33,7 @@ export const StylledLoginForm = styled.div`
     }
 
     & > p{
-        margin: 25px 0;
+        margin: 12px 0;
         color: var(--grey-4);
         font-family: 'Inder';
         font-style: normal;
