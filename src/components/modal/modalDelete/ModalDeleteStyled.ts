@@ -50,15 +50,25 @@ export const ModalDeleteStyled = styled.div`
     color: var(--grey-1);
     height: 56px;
     border-radius: 8px;
+
+   
   }
 
   .btnDelete {
     background-color: var(--color-six);
     margin-top: 40px;
+    :hover{
+      transition: 400ms;
+      opacity: 80%;
+    }
   }
 
   .btnCancel {
     background-color: var(--color-two);
     margin-top: 12px;
+    :hover{
+      transition: 400ms;
+      opacity: 80%;
+    }
   }
 `;

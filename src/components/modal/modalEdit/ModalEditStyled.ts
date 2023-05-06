@@ -86,6 +86,10 @@ export const ModalEditStyled = styled.div`
     padding: 1rem;
     margin-top: 10px;
     border-radius: 8px;
+    :hover{
+      transition: 400ms;
+      background-color: var(--color-four);
+    }
   }
 
   @media (min-width: 769px) {
