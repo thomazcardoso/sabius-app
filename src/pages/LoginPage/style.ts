@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StylledLoginPage = styled.div`
     background-color: var(--grey-3);
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     align-items: center;

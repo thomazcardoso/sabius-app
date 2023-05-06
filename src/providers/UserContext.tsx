@@ -98,13 +98,14 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       localStorage.setItem("@TOKEN:SABIUS", data.accessToken);
       localStorage.setItem("@USERID:SABIUS", JSON.stringify(data.user.id));
       setUser(data.user);
-      toast.success("Seja bem-vindo!")
+      toast.success(`Olá, ${data.user.name}!`)
       if (data.user.isAdmin) {
         navigate("/admin");
       } else {
         navigate("/dashboard");
       }
     } catch (error) {
+      toast.warn("Login não realizado!")
       console.log(error);
     } finally {
       setLoading(false)
