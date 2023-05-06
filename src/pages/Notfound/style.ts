@@ -9,11 +9,37 @@ export const StyledNotPage = styled.div`
     align-items: center;
     justify-content: center;
 
-    h1 {
-        text-align: flex-start;
-        width: 550px;
-        font-size: 62px;
+    div {
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h1 {
+            font-family: 'Inder', sans-serif;
+            text-align: flex-start;
+            width: 550px;
+            font-size: 62px;
+        }
+
+        a {
+            width: 80%;
+            font-size: 20px;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: var(--grey-1);
+            background-color: var(--color-one);
+
+            :hover {
+                transition: .4s;
+                background-color: var(--color-two);
+                color: var(--grey-1);
+            }
+        }
+
     }
+
 
     img {
         width: 690px;
