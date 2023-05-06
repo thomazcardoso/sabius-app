@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StylledInput = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+
 
     label {
         font-family: 'Inder';
@@ -13,12 +13,12 @@ export const StylledInput = styled.div`
         line-height: 25px;
         color: var(--grey-8);
         width: 100%;
-        margin-bottom: 9px;
+        margin-bottom: 4px;
     }
 
     input {
         border: 2px solid var(--color-one);
-        height: 56px;
+        height: 42px;
         padding-left: 21px;
         border-radius: 15px;
         font-family: "Inder";
@@ -38,7 +38,7 @@ export const StylledInput = styled.div`
 
     p{
         color: red;
-        margin-top: 5px;
+        margin-top: 2px;
     }
 
     @media (max-width: 600px) {
