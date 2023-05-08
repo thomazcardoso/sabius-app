@@ -5,6 +5,9 @@ import { UserContext } from "../../providers/UserContext";
 import { AdminContext } from "../../providers/AdminContext";
 import { StyledMenuFilter } from "./HeaderStyled";
 
+import lupa from "../../assets/lupa.svg";
+import Ilogout from "../../assets/logout.svg";
+
 export const Header = () => {
   const { logout, user } = useContext(UserContext);
   const { setSearch, menu, toogleModal, setMenu } = useContext(AdminContext);
@@ -16,7 +19,7 @@ export const Header = () => {
     <>
       <HeaderStyled>
         <div>
-          <img src={Logo} alt="Logo do Blog Sabius" />
+          <img className="logo__container" src={Logo} alt="Logo do Blog Sabius" />
           <h1>S A B I U S</h1>
         </div>
 
@@ -29,7 +32,7 @@ export const Header = () => {
             />
 
             <button>
-              <img src="/src/assets/lupa.svg" alt="" />
+              <img src={lupa} />
             </button>
           </form>
 
@@ -46,7 +49,7 @@ export const Header = () => {
         <div className="divLogout">
           <img src={user?.image} alt="" />
           <button onClick={logout}>
-            <img src="/src/assets/logout.svg" alt="" />
+            <img src={Ilogout} />
           </button>
         </div>
 

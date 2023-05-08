@@ -3,6 +3,9 @@ import { AdminContext, IPost } from "../../providers/AdminContext";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 
+import edit from "../../assets/edit.svg";
+import delet from "../../assets/delete.svg";
+
 interface IPostProps {
   post: IPost;
 }
@@ -31,11 +34,11 @@ export const Posts = ({ post }: IPostProps) => {
           <button
             className="btnEdit"
             onClick={() => editCard(post.id)}
-          ></button>
+          ><img src={edit}/></button>
           <button
             className="btnDelete"
             onClick={() => deleteCard(post.id)}
-          ></button>
+          ><img src={delet} /></button>
         </div>
       </div>
     </PostsStyled>
