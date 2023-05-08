@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Router } from "./routes"
+import { GlobalStyle } from "./styles/globaStyles"
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
-
-function App() {
-
-
-  return (
-    <>
-   
-    </>
-  )
-}
+const App = () => (
+  
+  <>
+    <GlobalStyle/>
+    <ToastContainer />
+    <Router />
+  </>
+)
 
 export default App
