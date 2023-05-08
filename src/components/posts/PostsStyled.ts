@@ -45,20 +45,28 @@ export const PostsStyled = styled.li`
   }
 
   .btnEdit {
-    background-image: url("/src/assets/edit.svg");
     width: 34px;
     height: 34px;
     border: none;
     background-color: transparent;
     margin-left: 13px;
+
+    img {
+      width: 34px;
+      height: 34px;
+    }
   }
 
   .btnDelete {
-    background-image: url("/src/assets/delete.svg");
     width: 34px;
     height: 34px;
     border: none;
     background-color: transparent;
+
+    img {
+      width: 34px;
+      height: 34px;
+    }
   }
 
   .postContainer {

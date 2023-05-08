@@ -21,6 +21,11 @@ export const HeaderStyled = styled.header`
     width: 200px;
   }
 
+  .logo__container {
+    border-radius: none;
+    border: none;
+  }
+
   div > img {
     height: 70px;
     width: 70px;
