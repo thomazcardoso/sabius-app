@@ -1,14 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Input from "../Input";
 import { UserContext } from "../../../providers/UserContext";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TLoginFormValues, loginFormSchema } from "../../../validations/loginFormSchema";
+import {
+  TLoginFormValues,
+  loginFormSchema,
+} from "../../../validations/loginFormSchema";
 import { StylledLoginForm } from "./style";
 import { CadasterLinkButton, LoginButton } from "../../../styles/buttons";
 
 export const LoginForm = () => {
-
   const { login, loading, setLoading } = useContext(UserContext);
   const {
     register,
@@ -18,8 +20,8 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
   const submit: SubmitHandler<TLoginFormValues> = (formData) => {
-    setLoading(true)
-    login(formData)
+    setLoading(true);
+    login(formData);
   };
 
   return (
@@ -41,9 +43,7 @@ export const LoginForm = () => {
           disabled={loading}
           error={errors.password}
         />
-        <LoginButton
-          disabled={loading}
-        >
+        <LoginButton disabled={loading}>
           {loading ? "Logando..." : "Logar"}
         </LoginButton>
       </form>
