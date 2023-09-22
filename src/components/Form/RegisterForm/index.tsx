@@ -1,9 +1,12 @@
 import Input from "../Input";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TRegisterFormValues, registerFormShema } from "../../../validations/registerFormSchema";
+import {
+  TRegisterFormValues,
+  registerFormShema,
+} from "../../../validations/registerFormSchema";
 import { UserContext } from "../../../providers/UserContext";
 import { StylledRegisterForm } from "./style";
 import { CadasterButton } from "../../../styles/buttons";
@@ -19,13 +22,13 @@ export const RegisterForm = () => {
   });
 
   const submit: SubmitHandler<TRegisterFormValues> = (formData) => {
-    setLoading(true)
+    setLoading(true);
     registerUser(formData);
   };
   return (
     <StylledRegisterForm>
-        <h2>Crie sua conta</h2>
-        <p>Rápido e grátis</p>
+      <h2>Crie sua conta</h2>
+      <p>Rápido e grátis</p>
       <form onSubmit={handleSubmit(submit)}>
         <Input
           label="Nome"
@@ -72,13 +75,10 @@ export const RegisterForm = () => {
           disabled={loading}
           error={errors.image}
         />
-        <CadasterButton
-          disabled={loading}
-        >
+        <CadasterButton disabled={loading}>
           {loading ? "Cadastrando..." : "Cadastrar"}
         </CadasterButton>
       </form>
     </StylledRegisterForm>
-
   );
 };
